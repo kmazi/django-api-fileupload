@@ -1,3 +1,5 @@
+import io
+
 from rest_framework.test import APITestCase
 from django.conf import settings
 from urllib.parse import urlparse
@@ -6,7 +8,6 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
 from PIL import Image
-import io
 from .models import FileUpload
 
 # Create your tests here.
@@ -16,7 +17,7 @@ class FileUploadTests(APITestCase):
 
   def _create_test_image(self):
     file = io.BytesIO()
-    image = Image.new('RGBA', (50, 50), color=(30, 40, 3, 5))
+    image = Image.new('RGB', (50, 50), color=(30, 40, 3))
     image.save(file, 'png')
     file.name = 'test.png'
     file.seek(0)

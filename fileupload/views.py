@@ -7,5 +7,5 @@ from .serializers import FileUploadSerializer
 class FileUploadViewSet(ModelViewSet):
   queryset = FileUpload.objects.all()
   serializer_class = FileUploadSerializer
-  parser_class = (FormParser, MultiPartParser)
+  parser_class = (MultiPartParser)
 
